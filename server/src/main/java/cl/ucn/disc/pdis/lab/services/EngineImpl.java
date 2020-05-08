@@ -42,7 +42,52 @@ public final class EngineImpl implements Engine {
      */
     @Override
     public String getDate(Current current) {
-        return ZonedDateTime.now().format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
+
+        return ZonedDateTime
+                .now()
+                .format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
     }
 
+    /**
+     *
+     * @param rut Check if the RUT received is correct.
+     * @param current The Current object for the invocation.
+     * @return
+     *
+     * NOTE: This part of the work was made with Eduardo Alvarez's help.
+     */
+    @Override
+    public boolean getDigitoVerificador(String rut,Current current){
+
+        try {
+            //Clear characters "." and "-"
+            rut = rut.replace(".", "");
+            rut = rut.replace("-", "");
+
+            //Extract rut as integer from rut received to rutAux. Except DV char.
+            int rutAux = Integer.parseInt(rut.substring(0, rut.length() - 1));
+
+            //Extract DV char from rut received
+            char dv = rut.charAt(rut.length() - 1);
+
+            //Verification params
+            int x = 0;
+            int y = 1;
+
+            //Verification logic
+            for (; rutAux != 0; rutAux /= 10) {
+                y = (y + rutAux % 10 * (9 - x++ % 6)) % 11;
+            }
+            if (dv == (char) (y != 0 ? y + 47 : 75)) {
+
+                return true;
+            }
+        } catch (java.lang.NumberFormatException e) {
+
+
+        } catch (Exception e) {
+
+        }
+        return false;
+    }
 }
