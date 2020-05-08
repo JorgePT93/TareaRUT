@@ -64,6 +64,15 @@ public final class SystemClient {
             final String theDate = engine.getDate();
             log.debug("The Date: {}", theDate);
 
+            final String rut = "18.240.213-3";
+            final boolean dv = engine.getDigitoVerificador(rut);
+
+            if(dv == true){
+                log.debug("El rut ingresado es correcto!");
+            }else{
+                log.debug("El rut ingresado es incorrecto!");
+            }
+
         }
 
         log.debug("Done.");
