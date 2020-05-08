@@ -6,6 +6,13 @@ module model
     interface Engine
     {
         string getDate();
+        /**
+        * Rut Verification. User can use char like "." y "-".
+        * @return boolean:
+        *       TRUE =  El rut es correcto.
+        *       FALSE=  El rut es incorrecto.
+        */
+        bool getDigitoVerificador(string rut);
     }
 
 }
