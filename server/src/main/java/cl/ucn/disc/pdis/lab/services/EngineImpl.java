@@ -30,6 +30,7 @@ import com.zeroc.Ice.Current;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
+
 /**
  * The implementation of {@link cl.ucn.disc.pdis.lab.zeroice.model.Engine}.
  *
@@ -86,7 +87,12 @@ public final class EngineImpl implements Engine {
 
 
         } catch (Exception e) {
-
+            //TODO: DEBUG O RETURN SOME LIKE ERROR 001: INVALID RUT DATA.
+            /*The actual problem is that this method return bool.
+            * So, we only have 2 output. Maybe if I put another output type
+            * I could set different output, including exception.
+            */
+            return false;
         }
         return false;
     }
