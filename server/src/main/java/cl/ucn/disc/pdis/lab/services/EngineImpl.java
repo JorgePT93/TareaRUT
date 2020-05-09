@@ -38,7 +38,8 @@ import java.time.format.DateTimeFormatter;
  */
 public final class EngineImpl implements Engine {
 
-    /**
+    /**This method return the actual Date.
+     *
      * @see Engine#getDate(Current)
      */
     @Override
@@ -49,7 +50,7 @@ public final class EngineImpl implements Engine {
                 .format(DateTimeFormatter.ISO_ZONED_DATE_TIME);
     }
 
-    /**
+    /**This method Return a boolean that certifies a rut well written.
      *
      * @param rut Check if the RUT received is correct.
      * @param current The Current object for the invocation.
