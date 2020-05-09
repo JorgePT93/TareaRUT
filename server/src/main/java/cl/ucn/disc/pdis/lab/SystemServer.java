@@ -42,7 +42,8 @@ public final class SystemServer {
      */
     private static final Logger log = LoggerFactory.getLogger(SystemServer.class);
 
-    /**
+    /**The main file.
+     *
      * @param args to use.
      */
     public static void main(final String[] args) {
