@@ -67,7 +67,7 @@ public final class SystemClient {
             final String rut = "18.240.213-3";
             final boolean dv = engine.getDigitoVerificador(rut);
 
-            if(dv == true){
+            if(dv){
                 log.debug("El rut ingresado es correcto!");
             }else{
                 log.debug("El rut ingresado es incorrecto!");
