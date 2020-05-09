@@ -78,7 +78,8 @@ public final class SystemClient {
         log.debug("Done.");
     }
 
-    /**
+    /**This method return the Initialization Data from ZeroIce.
+     *
      * @param args to use as source.
      * @return the {@link InitializationData}.
      */
